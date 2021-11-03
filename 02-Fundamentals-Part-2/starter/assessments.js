@@ -306,23 +306,86 @@ for (let vote = 1; vote <= 50; vote++) {
    'percentages' array that we created manually in the previous assignment,
    and reflect on how much better this solution is
  */
-
+const percentages2 = [];
+for (let i = 0; i < popUL.length; i++) {
+   percentages2.push(percentageOfWorld1(popUL[i]));
+}
+console.log(popUL, percentages2);
 
 /**
  * LECTURE: Looping Backwards and Loops in Loops
-1. Store this array of arrays into a variable called 'listOfNeighbours'
-[['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden',
-'Russia']];
-2. Log only the neighbouring countries to the console, one by one, not the entire
-arrays. Log a string like 'Neighbour: Canada' for each country
-3. You will need a loop inside a loop for this. This is actually a bit tricky, so don't
-worry if it's too difficult for you! But you can still try to figure this out anyway �
+   1. Store this array of arrays into a variable called 'listOfNeighbours'
+   [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden',
+   'Russia']];
+   2. Log only the neighbouring countries to the console, one by one, not the entire
+   arrays. Log a string like 'Neighbour: Canada' for each country
+   3. You will need a loop inside a loop for this. This is actually a bit tricky, so don't
+   worry if it's too difficult for you! But you can still try to figure this out anyway �
  */
+const listOfNeighbours1 = [['Canada', 'Mexico'], ['Spain'], ['Norway', 'Sweden', 'Russia']];
+for (let i = 0; i < listOfNeighbours1.length; i++) {
+   for (let j = 0; j < listOfNeighbours1[i].length; j++) {
+      console.log(`Neighbour: ${listOfNeighbours1[i][j]}`);
+   }
+}
 
 /**
  * LECTURE: The while Loop
-1. Recreate the challenge from the lecture 'Looping Arrays, Breaking and Continuing',
-but this time using a while loop (call the array 'percentages3')
-2. Reflect on what solution you like better for this task: the for loop or the while
-loop?
+   1. Recreate the challenge from the lecture 'Looping Arrays, Breaking and Continuing',
+   but this time using a while loop (call the array 'percentages3')
+   2. Reflect on what solution you like better for this task: the for loop or the while
+   loop?
  */
+const percentages3 = [];
+while (percentages3.length < popUL.length) {
+   percentages3.push(percentageOfWorld1(popUL[percentages3.length]));
+}
+console.log(percentages3);
+
+///////////////////////////////////////
+// Coding Challenge #4
+
+/*
+Let's improve Steven's tip calculator even more, this time using loops!
+ 
+1. Create an array 'bills' containing all 10 test bill values
+2. Create empty arrays for the tips and the totals ('tips' and 'totals')
+3. Use the 'calcTip' function we wrote before (no need to repeat) to calculate tips and total values (bill + tip) for every bill value in the bills array. Use a for loop to perform the 10 calculations!
+ 
+TEST DATA: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
+ 
+HINT: Call calcTip in the loop and use the push method to add values to the tips and totals arrays 😉
+ 
+4. BONUS: Write a function 'calcAverage' which takes an array called 'arr' as an argument. This function calculates the average of all numbers in the given array. This is a DIFFICULT challenge (we haven't done this before)! Here is how to solve it:
+  4.1. First, you will need to add up all values in the array. To do the addition, start by creating a variable 'sum' that starts at 0. Then loop over the array using a for loop. In each iteration, add the current value to the 'sum' variable. This way, by the end of the loop, you have all values added together
+  4.2. To calculate the average, divide the sum you calculated before by the length of the array (because that's the number of elements)
+  4.3. Call the function with the 'totals' array
+ 
+GOOD LUCK 😀
+*/
+const bills1 = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips2 = [];
+const totals2 = [];
+let sum = 0;
+function calcTip1(bill) {
+   if (bill >= 50 && bill <= 300) {
+      tips2.push(bill * 0.20);
+      totals2.push(bill + (bill * 0.20));
+   } else {
+      tips2.push(bill * 0.15);
+      totals2.push(bill + (bill * 0.15));
+   }
+}
+function calcAverage1(arr) {
+   for (let j = 0; j < arr.length; j++) {
+      sum = sum + arr[j];
+   }
+   sum = sum / arr.length;
+   return sum;
+}
+for (let i = 0; i < bills1.length; i++) {
+   calcTip1(bills1[i]);
+}
+console.log(`Tips: $${tips2}
+Totals: $${totals2}`);
+console.log(`Average function back: $${calcAverage1(bills1)}`);
