@@ -199,49 +199,114 @@ console.log(total);
 
 /**
  * LECTURE: Introduction to Objects
-1. Create an object called 'myCountry' for a country of your choice, containing
-properties 'country', 'capital', 'language', 'population' and
-'neighbours' (an array like we used in previous assignments)
+   1. Create an object called 'myCountry' for a country of your choice, containing
+   properties 'country', 'capital', 'language', 'population' and
+   'neighbours' (an array like we used in previous assignments)
  */
+const myCountry = { country: 'USA', capital: 'Helena', language: 'English', population: 5, neighbours: 3 };
 
 /**
  * LECTURE: Dot vs. Bracket Notation
-1. Using the object from the previous assignment, log a string like this to the
-console: 'Finland has 6 million finnish-speaking people, 3 neighbouring countries
-and a capital called Helsinki.'
-2. Increase the country's population by two million using dot notation, and then
-decrease it by two million using brackets notation.
+   1. Using the object from the previous assignment, log a string like this to the
+   console: 'Finland has 6 million finnish-speaking people, 3 neighbouring countries
+   and a capital called Helsinki.'
+   2. Increase the country's population by two million using dot notation, and then
+   decrease it by two million using brackets notation.
  */
+console.log(`${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry['neighbours']} neighbouring countries and a capital called ${myCountry['capital']}.`);
 
 /**
  * LECTURE: Object Methods
-1. Add a method called 'describe' to the 'myCountry' object. This method
-will log a string to the console, similar to the string logged in the previous
-assignment, but this time using the 'this' keyword.
-2. Call the 'describe' method
-3. Add a method called 'checkIsland' to the 'myCountry' object. This
-method will set a new property on the object, called 'isIsland'.
-'isIsland' will be true if there are no neighbouring countries, and false if
-there are. Use the ternary operator to set the property.
+   1. Add a method called 'describe' to the 'myCountry' object. This method
+   will log a string to the console, similar to the string logged in the previous
+   assignment, but this time using the 'this' keyword.
+   2. Call the 'describe' method
+   3. Add a method called 'checkIsland' to the 'myCountry' object. This
+   method will set a new property on the object, called 'isIsland'.
+   'isIsland' will be true if there are no neighbouring countries, and false if
+   there are. Use the ternary operator to set the property.
  */
+const myCountry1 = {
+   country: 'USA',
+   capital: 'Helena',
+   language: 'English',
+   population: 5,
+   neighbours: 3,
+   describe: function () {
+      console.log(this);
+   },
+   checkIsland: isIsland = (this.neighbours > 0) ? true : false
+};
+
+console.log(myCountry1);
+
+///////////////////////////////////////
+// Coding Challenge #3
+
+/*
+Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations!
+Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
+
+1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI (the same method on both objects). Store the BMI value to a property, and also return it from the method.
+3. Log to the console who has the higher BMI, together with the full name and the respective BMI. Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
+
+TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
+
+GOOD LUCK 😀
+*/
+const markMiller =
+{
+   firstName: 'Mark',
+   lastName: 'Miller',
+   mass: 78,
+   height: 1.69,
+   calcBMI: function () {
+      const mBMI = this.mass / (this.height ** 2);
+      return mBMI;
+   }
+}
+const johnSmith =
+{
+   firstName: 'John',
+   lastName: 'Smith',
+   mass: 92,
+   height: 1.95,
+   calcBMI: function () {
+      this.bmi = this.mass / (this.height ** 2);
+      return this.bmi;
+   }
+}
+johnSmith.calcBMI();// you can call this and then reference the .bmi instead of the full function multiple times.
+if (johnSmith.bmi > markMiller.calcBMI()) {
+   console.log(`${johnSmith.firstName} ${johnSmith.lastName}'s BMI (${johnSmith.bmi}) is higher than ${markMiller.firstName} ${markMiller.lastName}'s (${markMiller.calcBMI()})!'`);
+} else if (markMiller.calcBMI() > johnSmith.bmi) {
+   console.log(`${markMiller.firstName} ${markMiller.lastName}'s BMI (${markMiller.calcBMI()}) is higher than ${johnSmith.firstName} ${johnSmith.lastName}'s (${johnSmith.bmi})!'`);
+} else {
+   console.log(`Both BMI's is exactly the same.`);
+}
 
 /**
  * LECTURE: Iteration: The for Loop
-1. There are elections in your country! In a small town, there are only 50 voters.
-Use a for loop to simulate the 50 people voting, by logging a string like this to
-the console (for numbers 1 to 50): 'Voter number 1 is currently voting'
+   1. There are elections in your country! In a small town, there are only 50 voters.
+   Use a for loop to simulate the 50 people voting, by logging a string like this to
+   the console (for numbers 1 to 50): 'Voter number 1 is currently voting'
  */
+for (let vote = 1; vote <= 50; vote++) {
+   console.log(`Voter number ${vote} is currently voting.`);
+}
 
 /**
  * LECTURE: Looping Arrays, Breaking and Continuing
-1. Let's bring back the 'populations' array from a previous assignment
-2. Use a for loop to compute an array called 'percentages2' containing the
-percentages of the world population for the 4 population values. Use the
-function 'percentageOfWorld1' that you created earlier
-3. Confirm that 'percentages2' contains exactly the same values as the
-'percentages' array that we created manually in the previous assignment,
-and reflect on how much better this solution is
+   1. Let's bring back the 'populations' array from a previous assignment
+   2. Use a for loop to compute an array called 'percentages2' containing the
+   percentages of the world population for the 4 population values. Use the
+   function 'percentageOfWorld1' that you created earlier
+   3. Confirm that 'percentages2' contains exactly the same values as the
+   'percentages' array that we created manually in the previous assignment,
+   and reflect on how much better this solution is
  */
+
 
 /**
  * LECTURE: Looping Backwards and Loops in Loops
