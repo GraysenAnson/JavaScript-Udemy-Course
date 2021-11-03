@@ -378,14 +378,13 @@ function calcTip1(bill) {
 }
 function calcAverage1(arr) {
    for (let j = 0; j < arr.length; j++) {
-      sum = sum + arr[j];
+      sum += arr[j];
    }
-   sum = sum / arr.length;
-   return sum;
+   return sum / arr.length;
 }
 for (let i = 0; i < bills1.length; i++) {
    calcTip1(bills1[i]);
 }
 console.log(`Tips: $${tips2}
 Totals: $${totals2}`);
-console.log(`Average function back: $${calcAverage1(bills1)}`);
+console.log(`Average function back: $${calcAverage1(totals2)}`);
