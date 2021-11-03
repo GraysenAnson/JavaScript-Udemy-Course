@@ -108,7 +108,7 @@ checkWinner(dolpTeamAvg, koalasTeamAvg);
 checkWinner(dolpTeamAvg1, koalasTeamAvg1);
 function checkWinner(avgDolhins, avgKoalas) {
    if (avgDolhins >= 2 * avgKoalas) {
-      console.log(`Dolphines Win (${avgDolhins} vs. ${avgKolas})`);
+      console.log(`Dolphines Win (${avgDolhins} vs. ${avgKoalas})`);
    } else if (avgKoalas >= 2 * avgDolhins) {
       console.log(`Koalas Win (${avgKoalas} vs. ${avgDolhins})`);
    } else {
@@ -119,15 +119,20 @@ function checkWinner(avgDolhins, avgKoalas) {
 
 /**
  * LECTURE: Introduction to Arrays
-1. Create an array containing 4 population values of 4 countries of your choice.
-You may use the values you have been using previously. Store this array into a
-variable called 'populations'
-2. Log to the console whether the array has 4 elements or not (true or false)
-3. Create an array called 'percentages' containing the percentages of the
-world population for these 4 population values. Use the function
-'percentageOfWorld1' that you created earlier to compute the 4
-percentage values
+   1. Create an array containing 4 population values of 4 countries of your choice.
+   You may use the values you have been using previously. Store this array into a
+   variable called 'populations'
+   2. Log to the console whether the array has 4 elements or not (true or false)
+   3. Create an array called 'percentages' containing the percentages of the
+   world population for these 4 population values. Use the function
+   'percentageOfWorld1' that you created earlier to compute the 4
+   percentage values
  */
+const popUL = [100, 200, 300, 400];
+console.log(popUL.length <= 4);
+const percentUL = [percentageOfWorld1(popUL[0]), percentageOfWorld1(popUL[1]),
+percentageOfWorld1(popUL[2]), percentageOfWorld1(popUL[3])];
+console.log(percentUL);
 
 /**
  * LECTURE: Basic Array Operations (Methods)
@@ -145,6 +150,16 @@ index of the country in the 'neighbours' array, and then use that index to
 change the array at that index position. For example, you can search for
 'Sweden' in the array, and then replace it with 'Republic of Sweden'.
  */
+const neighbors1 = ['Canada', 'USA', 'Mexico'];
+neighbors1.push('Utopia');
+console.log(neighbors1);
+neighbors1.pop();
+console.log(neighbors1);
+if (neighbors1[0] != 'Germany' || neighbors1[1] != 'Germany' || neighbors1[2] != 'Germany') {
+   console.log('Probably not a central European country :)');
+}
+neighbors1[1] = 'U S FUCKING A.';
+console.log(neighbors1);
 
 /**
  * LECTURE: Introduction to Objects
